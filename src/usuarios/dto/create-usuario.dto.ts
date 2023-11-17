@@ -3,7 +3,7 @@ import { IsAlphanumeric, IsEmail, IsNumberString, IsString } from "class-validat
 
 export class CreateUsuarioDto {
 
-  @IsAlphanumeric("es-ES", { message: 'El RUT debe ser alfanumérico' })
+  @IsString({ message: 'El RUT debe ser una cadena de caracteres' })
   @ApiProperty({ description: 'RUT del usuario', example: '12345678-9'})
   rut: string;
 
