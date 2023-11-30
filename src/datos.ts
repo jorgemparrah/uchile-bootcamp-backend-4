@@ -1,9 +1,12 @@
-import { Usuario } from "./usuarios/entities/usuario";
-import { Peluqueria } from './servicios/entities/peluqueria';
-import { Comuna } from "./ubicacion/entities/comuna";
-import { Contacto } from "./soporte/entities/contacto";
+import { Categoria } from "./productos/entities/categoria";
+import { Especie } from "./productos/entities/especie";
 import { Producto } from "./productos/entities/producto";
 import { Subcategoria } from "./productos/entities/subcategoria";
+import { Peluqueria } from './servicios/entities/peluqueria';
+import { Comuna } from "./ubicacion/entities/comuna";
+import { Usuario } from "./usuarios/entities/usuario";
+
+export const SOLICITUDES_CONTACTO = [];
 
 export const COMUNAS : Comuna[] = [
   new Comuna(1, "Colina"),
@@ -170,23 +173,37 @@ export const USUARIOS : Usuario[] = [
   new Usuario("11222333-9", "ana.martinez@dummyemail.org", "d123456", "Ana María Martínez", "955556666")
 ];
 
-export const SOLICITUDES_CONTACTO : Contacto[] = [];
+export const ESPECIES: Especie[] = [
+  new Especie("PERRO", "Perro"),
+  new Especie("GATO", "Gato"),
+  new Especie("AVE", "Ave"),
+  new Especie("ROEDOR", "Roedor"),
+  new Especie("REPTIL", "Reptil"),
+  new Especie("PEZ", "Pez"),
+];
 
-export const PRODUCTOS : Producto[] = [
-  new Producto(1, "NutriPellets Premium para Perros", "Pellets nutritivos especialmente formulados para perros de todas las edades.", "ALIMENTACION", 19992),
-  new Producto(2, "GatoGourmet Delicias de Salmón", "Comida húmeda para gatos con trozos reales de salmón y enriquecida con vitaminas.", "ALIMENTACION", 1200),
-  new Producto(3, "AvesFestín Mezcla de Semillas", "Mezcla variada de semillas para aves, incluyendo girasol, mijo y alpiste.", "ALIMENTACION", 7192),
-  new Producto(4, "RoedorYummies Bloques Nutritivos", "Bloques compactos de nutrientes para hamsters, conejos y otros roedores pequeños.", "ALIMENTACION", 4792),
-  new Producto(5, "FiestaFish Copos Tropicales", "Alimento en copos para peces de acuario, con ingredientes naturales y colorantes.", "ALIMENTACION", 10392),
-  new Producto(6, "ReptilSnack Insectos Deshidratados", "Mezcla de insectos deshidratados para reptiles, como lagartijas y tortugas.", "ALIMENTACION", 8792),
-  new Producto(7, "CanineCrunch Bocadillos de Pollo", "Snacks crujientes de pollo para perros, sin aditivos artificiales.", "ALIMENTACION", 5592),
-  new Producto(8, "MiauMix Croquetas de Atún", "Croquetas secas para gatos con sabor a atún, ricas en omega-3 y fibras.", "ALIMENTACION", 15992),
-  new Producto(9, "HealthyHerbivore Hierbas para Conejos", "Mezcla de hierbas secas para conejos y otros herbívoros pequeños.", "ALIMENTACION", 6392),
-  new Producto(10, "PawsLick Láminas de Salmón Liofilizado", "Láminas de salmón liofilizado como premio para perros y gatos.", "ALIMENTACION", 7992)
+export const CATEGORIAS : Categoria[] = [
+  new Categoria("ACCESORIOS", "Accesorios"),
+  new Categoria("ALIMENTACION", "Alimentación")
 ];
 
 export const SUBCATEGORIAS : Subcategoria[] = [
   new Subcategoria("VESTUARIO", "Vestuario y accesorios", "ACCESORIOS"),
   new Subcategoria("JUGUETES", "Juguetes", "ACCESORIOS"),
-  new Subcategoria("TRANSPORTE", "Transporte y seguridad", "ACCESORIOS")
+  new Subcategoria("TRANSPORTE", "Transporte y seguridad", "ACCESORIOS"),
+  new Subcategoria("ALIMENTO", "Alimento", "ALIMENTACION"),
 ];
+
+export const PRODUCTOS : Producto[] = [
+  new Producto(1, "NutriPellets Premium para Perros",                       "ALIMENTACION", "ALIMENTO", "PERRO",   10800, 20, "/productos/1.png"),
+  new Producto(2, "GatoGourmet Delicias de Salmón",                         "ALIMENTACION", "ALIMENTO", "GATO",    12500, 10, "/productos/2.png"),
+  new Producto(3, "AvesFestín Mezcla de Semillas",                          "ALIMENTACION", "ALIMENTO", "AVE",     25500, 11, "/productos/3.png"),
+  new Producto(4, "RoedorYummies Bloques Nutritivos",                       "ALIMENTACION", "ALIMENTO", "ROEDOR",  55800, 25, "/productos/4.png"),
+  new Producto(5, "FiestaFish Copos Tropicales",                            "ALIMENTACION", "ALIMENTO", "PEZ",     10700,  1, "/productos/5.png"),
+  new Producto(6, "ReptilSnack Insectos Deshidratados",                     "ALIMENTACION", "ALIMENTO", "REPTIL",   9500,  0, "/productos/6.png"),
+  new Producto(7, "CanineCrunch Bocadillos de Pollo",                       "ALIMENTACION", "ALIMENTO", "PERRO",   70200, 30, "/productos/7.png"),
+  new Producto(8, "MiauMix Croquetas de Atún",                              "ALIMENTACION", "ALIMENTO", "GATO",    10500,  9, "/productos/8.png"),
+  new Producto(9, "HealthyHerbivore Hierbas para Conejos",                  "ALIMENTACION", "ALIMENTO", "ROEDOR",  18500,  8, "/productos/9.png"),
+  new Producto(10, "PawsLick Láminas de Salmón Liofilizado",                "ALIMENTACION", "ALIMENTO", "GATO",    13500,  3, "/productos/10.png")
+];
+

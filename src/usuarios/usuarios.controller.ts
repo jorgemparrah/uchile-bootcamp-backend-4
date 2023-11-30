@@ -1,14 +1,18 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Logger, Post } from '@nestjs/common';
+import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiOkResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
 import { AccesoDto } from './dto/acceso.dto';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
-import { UsuariosService } from './usuarios.service';
 import { UsuarioDto } from './dto/usuario.dto';
-import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiOkResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
+import { UsuariosService } from './usuarios.service';
 
 @ApiTags('Usuarios')
 @Controller('usuarios')
 export class UsuariosController {
-  constructor(private readonly usuariosService: UsuariosService) {}
+  private readonly logger = new Logger(UsuariosController.name);
+  
+  constructor(
+    private readonly usuariosService: UsuariosService
+  ) {}
 
   @Post("registrar")
   @ApiBody({ type: CreateUsuarioDto })
@@ -22,7 +26,8 @@ export class UsuariosController {
   @ApiOkResponse({ description: "El usuario inició sesión correctamente" })
   @ApiUnauthorizedResponse({ description: "Usuario o clave incorrectos" })
   iniciarSesion(@Body() accesoDto: AccesoDto): UsuarioDto {
-    return this.usuariosService.iniciarSesion(accesoDto.email, accesoDto.clave);
+    this.logger.debug(`Iniciar sesión: ${accesoDto.fullName}`);
+    return this.usuariosService.iniciarSesion(accesoDto.fullName, accesoDto.securePassword);
   }
 
   @Get()

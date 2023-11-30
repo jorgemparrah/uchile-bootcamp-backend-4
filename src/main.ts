@@ -1,10 +1,15 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { WinstonModule } from 'nest-winston';
+import { AppModule } from './app.module';
+import { CONFIG_LOGS } from './configLogs';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    // logger: WinstonModule.createLogger(CONFIG_LOGS)
+  });
+  app.enableCors();
   const config = new DocumentBuilder()
     .setTitle('API')
     .setDescription('APIs')

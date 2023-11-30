@@ -1,13 +1,13 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, IsOptional } from "class-validator";
+import { IsEmail } from "class-validator";
 
 export class AccesoDto {
 
   @IsEmail({}, { message: 'El correo electrónico debe ser válido' })
   @ApiProperty({ description: 'Correo electrónico del usuario', example: 'ejemplo@ejemplo.com' })
-  email: string;
+  fullName: string;
 
   @ApiProperty({ description: 'Clave del usuario', example: 'clave' })
-  clave: string;
+  securePassword: string;
 
 }
