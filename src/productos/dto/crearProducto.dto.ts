@@ -1,9 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsAlpha, IsNumber, IsPositive, IsString } from "class-validator";
+import { IsAlpha, IsNumber, IsNumberString, IsPositive, IsString } from "class-validator";
 
 export class CrearProductoDto {
 
-  @IsNumber({}, { message: 'Debe ser un número'})
+  @IsNumberString({}, { message: 'id debe ser un número'})
   @IsPositive({ message: 'Debe ser un número positivo' })
   @ApiProperty({ description: 'Identificador del producto', example: 1 })
   id: number;
@@ -12,26 +12,24 @@ export class CrearProductoDto {
   @ApiProperty({ description: 'Nombre del producto', example: 'Producto 1' })
   nombre: string;
 
-  @IsAlpha("es-ES", { message: 'La categoría debe ser una cadena de caracteres' })
+  @IsString({ message: 'La categoría debe ser una cadena de caracteres' })
   @ApiProperty({ description: 'Identificador de la categoría', example: 'ALIMENTACION' })
   idCategoria: string;
 
-  @IsAlpha("es-ES", { message: 'La subcategoría debe ser una cadena de caracteres' })
+  @IsString({ message: 'La subcategoría debe ser una cadena de caracteres' })
   @ApiProperty({ description: 'Identificador de la subcategoría', example: 'ALIMENTO' })
   idSubcategoria: string;
 
 
-  @IsAlpha("es-ES", { message: 'La expecie debe ser una cadena de caracteres' })
+  @IsString({ message: 'La expecie debe ser una cadena de caracteres' })
   @ApiProperty({ description: 'Identificador de la especie', example: 'PERRO' })
   idEspecie: string;
 
-  @IsNumber({}, { message: 'Debe ser un número'})
-  @IsPositive({ message: 'Debe ser un número positivo' })
+  @IsNumberString({}, { message: 'precio debe ser un número'})
   @ApiProperty({ description: 'Precio del producto', example: 100 })
   precio: number;
 
-  @IsNumber({}, { message: 'Debe ser un número'})
-  @IsPositive({ message: 'Debe ser un número positivo' })
+  @IsNumberString({}, { message: 'cantidad debe ser un número'})
   @ApiProperty({ description: 'Cantidad del producto en stock', example: 20 })
   cantidad: number;
 
