@@ -14,7 +14,12 @@ export class ProductosService {
   constructor(@InjectRepository(Producto) private readonly productoRepository: Repository<Producto>) {}
 
   async findAll(): Promise<ProductoDto[]> {
-    const lista = await this.productoRepository.find();
+    const lista = await this.productoRepository.find({
+      relations: {
+        categoria: true,
+        subcategoria: true,
+      },
+    });
     return ProductoMapper.toDtoList(lista);
   }
 
