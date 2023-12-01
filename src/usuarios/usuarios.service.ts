@@ -44,7 +44,7 @@ export class UsuariosService {
   }
 
   iniciarSesion(correo: string, clave: string): UsuarioDto {
-    const usuario = this.buscarPorEmail(correo);
+    const usuario = this.buscarPorRut(correo);
     if (usuario && usuario.clave === clave) {
       return UsuarioMapper.toDto(usuario);
     }
