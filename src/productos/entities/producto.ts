@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { Especie } from './especie';
 import { Subcategoria } from './subcategoria';
 import { Categoria } from './categoria';
@@ -24,12 +24,15 @@ export class Producto {
   imagen: string;
 
   @ManyToOne(() => Categoria)
+  @JoinColumn({ name: 'idCategoria' })
   categoria: Categoria;
 
   @ManyToOne(() => Subcategoria)
+  @JoinColumn({ name: 'idSubcategoria' })
   subcategoria: Subcategoria;
 
   @ManyToOne(() => Especie)
+  @JoinColumn({ name: 'idEspecie' })
   especie: Especie;
 
   constructor(id: number, nombre: string, idCategoria: string, idSubcategoria: string, idEspecie: string, precio: number, cantidad: number, imagen: string) {

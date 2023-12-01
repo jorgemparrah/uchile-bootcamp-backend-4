@@ -18,9 +18,10 @@ export class ProductosService {
       relations: {
         categoria: true,
         subcategoria: true,
-        especie: true,
+        especie: true
       },
     });
+    console.log(lista);
     return ProductoMapper.toDtoList(lista);
   }
 
