@@ -195,15 +195,15 @@ export const SUBCATEGORIAS : Subcategoria[] = [
 ];
 
 export const PRODUCTOS : Producto[] = [
-  new Producto(1, "NutriPellets Premium para Perros",                       "ALIMENTACION", "ALIMENTO", "PERRO",   10800, 20, "/productos/1.png"),
-  new Producto(2, "GatoGourmet Delicias de Salmón",                         "ALIMENTACION", "ALIMENTO", "GATO",    12500, 10, "/productos/2.png"),
-  new Producto(3, "AvesFestín Mezcla de Semillas",                          "ALIMENTACION", "ALIMENTO", "AVE",     25500, 11, "/productos/3.png"),
-  new Producto(4, "RoedorYummies Bloques Nutritivos",                       "ALIMENTACION", "ALIMENTO", "ROEDOR",  55800, 25, "/productos/4.png"),
-  new Producto(5, "FiestaFish Copos Tropicales",                            "ALIMENTACION", "ALIMENTO", "PEZ",     10700,  1, "/productos/5.png"),
-  new Producto(6, "ReptilSnack Insectos Deshidratados",                     "ALIMENTACION", "ALIMENTO", "REPTIL",   9500,  0, "/productos/6.png"),
-  new Producto(7, "CanineCrunch Bocadillos de Pollo",                       "ALIMENTACION", "ALIMENTO", "PERRO",   70200, 30, "/productos/7.png"),
-  new Producto(8, "MiauMix Croquetas de Atún",                              "ALIMENTACION", "ALIMENTO", "GATO",    10500,  9, "/productos/8.png"),
-  new Producto(9, "HealthyHerbivore Hierbas para Conejos",                  "ALIMENTACION", "ALIMENTO", "ROEDOR",  18500,  8, "/productos/9.png"),
-  new Producto(10, "PawsLick Láminas de Salmón Liofilizado",                "ALIMENTACION", "ALIMENTO", "GATO",    13500,  3, "/productos/10.png")
+  new Producto(1, "NutriPellets Premium para Perros",                       "ALIMENTACION", "ALIMENTO", "PERRO",   10800, 20, "/src/assets/images/AlimentoHumedoGatitoKittenCanChatPoulet155g.png"),
+  new Producto(2, "GatoGourmet Delicias de Salmón",                         "ALIMENTACION", "ALIMENTO", "GATO",    12500, 10, "/src/assets/images/AlimentoHumedoGatitoKittenProPlanPolloHigadoLata.png"),
+  new Producto(3, "AvesFestín Mezcla de Semillas",                          "ALIMENTACION", "ALIMENTO", "AVE",     25500, 11, "/src/assets/images/AlimentoHumedoGatitoKittenThreeCatsPate.png"),
+  new Producto(4, "RoedorYummies Bloques Nutritivos",                       "ALIMENTACION", "ALIMENTO", "ROEDOR",  55800, 25, "/src/assets/images/AlimentoHumedoGatoAdultoCastradoThreeCatsPateSaborPollo.png"),
+  new Producto(5, "FiestaFish Copos Tropicales",                            "ALIMENTACION", "ALIMENTO", "PEZ",     10700,  1, "/src/assets/images/AlimentoHumedoGatoAdultoFancyFeastTerrinePollo.jpg"),
+  new Producto(6, "ReptilSnack Insectos Deshidratados",                     "ALIMENTACION", "ALIMENTO", "REPTIL",   9500,  0, "/src/assets/images/AlimentoHumedoGatoAdultoHillsPrescriptionDietKDKidneyCareCatLata.png"),
+  new Producto(7, "CanineCrunch Bocadillos de Pollo",                       "ALIMENTACION", "ALIMENTO", "PERRO",   70200, 30, "/src/assets/images/AlimentoHumedoGatoAdultoNecesidadesEspecialesHillsPrescriptionDietCDMulticareUrinaryCatLata.png"),
+  new Producto(8, "MiauMix Croquetas de Atún",                              "ALIMENTACION", "ALIMENTO", "GATO",    10500,  9, "/src/assets/images/AlimentoHumedoGatoAdultoOptimumPollo.png"),
+  new Producto(9, "HealthyHerbivore Hierbas para Conejos",                  "ALIMENTACION", "ALIMENTO", "ROEDOR",  18500,  8, "/src/assets/images/AlimentoHumedoGatoAdultoProPlanUrinaryCatCarnePollo.png"),
+  new Producto(10, "PawsLick Láminas de Salmón Liofilizado",                "ALIMENTACION", "ALIMENTO", "GATO",    13500,  3, "/src/assets/images/AlimentoHumedoGatoAdultoThreeCatsSaborCarneSobre.png")
 ];
 
