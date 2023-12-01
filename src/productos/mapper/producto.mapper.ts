@@ -26,16 +26,16 @@ export class ProductoMapper {
     return entityList.map(entity => ProductoMapper.toDto(entity));
   }
 
-  static toEntity(dto: CrearProductoDto): Producto {
+  static toEntity(id: number, ruta: string, dto: CrearProductoDto): Producto {
     const entity = new Producto(
-      dto.id,
+      id,
       dto.nombre,
-      dto.idCategoria,
-      dto.idSubcategoria,
-      dto.idEspecie,
+      dto.categoria,
+      dto.subcategoria,
+      dto.especie,
       dto.precio,
       dto.cantidad,
-      dto.imagen
+      ruta
     );
     return entity;
   }
