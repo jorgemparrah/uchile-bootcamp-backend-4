@@ -16,12 +16,12 @@ export class CargaDatosService implements OnModuleInit {
     private readonly productosService: ProductosService,
   ) {}
 
-  onModuleInit() {
-    this.comunasService.fillData();
-    this.especiesService.fillData();
-    this.categoriaService.fillData();
-    this.subcategoriaService.fillData();
-    this.productosService.fillData();
+  async onModuleInit() {
+    await this.comunasService.fillData();
+    await this.especiesService.fillData();
+    await this.categoriaService.fillData();
+    await this.subcategoriaService.fillData();
+    await this.productosService.fillData();
   }
 
 }
