@@ -58,7 +58,7 @@ export class ProductosService {
       });
       return rutaImagen;
     } catch (error) {
-      
+      console.log(error);
     }
   }
 
