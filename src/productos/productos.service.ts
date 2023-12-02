@@ -39,7 +39,7 @@ export class ProductosService {
       ruta = await this.guardarImagen(dto.nombreImagen, dto.imagen);
     }
     const contador: number = await this.productoRepository.count();
-    const entidad: Producto = ProductoMapper.toEntity(contador, ruta, dto);
+    const entidad: Producto = ProductoMapper.toEntity(contador + 1, ruta, dto);
     const guardado: Producto = await this.productoRepository.save(entidad);
     return ProductoMapper.toDto(guardado);
   }
