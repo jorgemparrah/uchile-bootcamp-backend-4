@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsAlpha, IsNumber, IsNumberString, IsPositive, IsString } from "class-validator";
+import { IsNumberString, IsString } from "class-validator";
 
 export class CrearProductoDto {
 
@@ -14,7 +14,6 @@ export class CrearProductoDto {
   @IsString({ message: 'La subcategoría debe ser una cadena de caracteres' })
   @ApiProperty({ description: 'Identificador de la subcategoría', example: 'ALIMENTO' })
   subcategoria: string;
-
 
   @IsString({ message: 'La expecie debe ser una cadena de caracteres' })
   @ApiProperty({ description: 'Identificador de la especie', example: 'PERRO' })

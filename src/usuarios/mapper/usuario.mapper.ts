@@ -1,5 +1,6 @@
 import { CreateUsuarioDto } from "../dto/create-usuario.dto";
 import { UsuarioDto } from "../dto/usuario.dto";
+import { Rol } from "../entities/rol";
 import { Usuario } from "../entities/usuario";
 
 export class UsuarioMapper {
@@ -17,8 +18,9 @@ export class UsuarioMapper {
     return entityList.map(entity => UsuarioMapper.toDto(entity));
   }
 
-  static toEntity(dto: CreateUsuarioDto): Usuario {
+  static toEntity(dto: CreateUsuarioDto, rolCliente: Rol): Usuario {
     const entity = new Usuario(dto.rut, dto.email, dto.clave, dto.nombreCompleto, dto.telefono);
+    entity.roles = [ rolCliente ];
     return entity;
   }
 

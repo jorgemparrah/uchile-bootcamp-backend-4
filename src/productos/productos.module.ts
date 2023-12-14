@@ -10,15 +10,19 @@ import { Producto } from './entities/producto';
 import { Categoria } from './entities/categoria';
 import { Subcategoria } from './entities/subcategoria';
 import { EspeciesService } from './especies.service';
+import { SubcategoriaDos } from './entities/subcategoriaDos';
+import { SubcategoriasDosController } from './subcategoriasDos.controller';
+import { SubcategoriasDosService } from './subcategoriasDos.service';
+import { CategoriasController } from './categorias.controller';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Especie, Categoria, Subcategoria, Producto
+      Especie, Categoria, Subcategoria, SubcategoriaDos, Producto
     ]),
   ],
-  controllers: [ProductosController, SubcategoriasController],
-  providers: [ProductosService, SubcategoriasService, CategoriasService, EspeciesService],
-  exports: [ProductosService, SubcategoriasService, CategoriasService, EspeciesService]
+  controllers: [ CategoriasController, SubcategoriasController, SubcategoriasDosController, ProductosController ],
+  providers: [CategoriasService, SubcategoriasService, SubcategoriasDosService, ProductosService, EspeciesService],
+  exports: [CategoriasService, SubcategoriasService, SubcategoriasDosService, ProductosService, EspeciesService]
 })
 export class ProductosModule {}

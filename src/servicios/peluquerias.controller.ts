@@ -12,10 +12,6 @@ export class PeluqueriasController {
   @ApiParam({ name: 'idComuna', description: 'Identificador de la comuna' })
   @ApiOkResponse({ description: "Lista de peluquerias por comuna", type: PeluqueriaDto, isArray: true })
   buscarPorComuna(@Param('idComuna') idComuna: string): PeluqueriaDto[] {
-    let id: number = null;
-    if (idComuna) {
-      id = +idComuna;
-    }
-    return this.peluqueriasService.buscarPorComuna(id);
+    return this.peluqueriasService.buscarPorComuna(idComuna);
   }
 }

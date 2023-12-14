@@ -3,7 +3,7 @@ import { ContactoService } from './contactos.service';
 import { ContactoDto } from './dto/contacto.dto';
 import { ApiBody, ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Contacto')
+@ApiTags('Soporte')
 @Controller('contacto')
 export class ContactoController {
   constructor(private readonly contactoService: ContactoService) {}

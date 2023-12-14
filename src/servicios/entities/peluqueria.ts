@@ -4,10 +4,10 @@ export class Peluqueria {
 
   id: number;
   nombre: string;
-  idComuna: number;
+  idComuna: string;
   comuna: Comuna;
 
-  constructor(id: number, idComuna: number, nombre: string) {
+  constructor(id: number, idComuna: string, nombre: string) {
     this.id = id;
     this.idComuna = idComuna;
     this.nombre = nombre;

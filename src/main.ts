@@ -3,10 +3,12 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import * as bodyParser from 'body-parser';
+import { WinstonModule } from 'nest-winston';
+import { CONFIG_LOGS } from './configLogs';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    // logger: WinstonModule.createLogger(CONFIG_LOGS)
+    logger: WinstonModule.createLogger(CONFIG_LOGS)
   });
   app.enableCors();
   app.use(bodyParser.json({ limit: '50mb' }));
@@ -17,10 +19,10 @@ async function bootstrap() {
     .setDescription('APIs')
     .setVersion('1.0')
     .addTag('Usuarios')
-    .addTag('Ubicacion')
-    .addTag('Subcategorias')
+    .addTag('Categorización')
     .addTag('Productos')
-    .addTag('Servicios')
+    .addTag('Ubicacion')
+    .addTag('Soporte')
     .build()
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

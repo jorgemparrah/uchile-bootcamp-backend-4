@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 
-@Entity({ name: 'comuna' })
-export class Comuna {
+@Entity({ name: 'region' })
+export class Region {
 
   @PrimaryColumn()
   id: string;
@@ -9,13 +9,9 @@ export class Comuna {
   @Column()
   nombre: string;
 
-  @Column()
-  idRegion: string;
-
-  constructor(id: string, nombre: string, idRegion: string) {
+  constructor(id: string, nombre: string) {
     this.id = id;
     this.nombre = nombre;
-    this.idRegion = idRegion;
   }
 
 }

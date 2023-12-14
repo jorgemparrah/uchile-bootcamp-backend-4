@@ -12,12 +12,16 @@ export class ComunasService {
 
   constructor(@InjectRepository(Comuna) private readonly comunaRepository: Repository<Comuna>) {}
 
-  async findAll(): Promise<ComunaDto[]> {
-    const lista = await this.comunaRepository.find();
+  async findByRegion(idRegion: string): Promise<ComunaDto[]> {
+    const lista = await this.comunaRepository.find({
+      where: {
+        idRegion: idRegion
+      }
+    });
     return OrdenarUtil.comuna(ComunaMapper.toDtoList(lista));
   }
 
-  async findOne(id: number): Promise<ComunaDto> {
+  async findOne(id: string): Promise<ComunaDto> {
     const entidad = await this.comunaRepository.findOneBy({ id: id });
     if (entidad) {
       return ComunaMapper.toDto(entidad);
