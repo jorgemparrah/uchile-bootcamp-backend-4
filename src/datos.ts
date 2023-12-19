@@ -1,12 +1,15 @@
 import { Categoria } from "./productos/entities/categoria";
 import { Especie } from "./productos/entities/especie";
 import { Producto } from "./productos/entities/producto";
+import { Stock } from "./productos/entities/stock";
 import { Subcategoria } from "./productos/entities/subcategoria";
 import { SubcategoriaDos } from "./productos/entities/subcategoriaDos";
+import { Tienda } from "./productos/entities/tienda";
 import { Comuna } from "./ubicacion/entities/comuna";
 import { Region } from "./ubicacion/entities/region";
 import { Rol } from "./usuarios/entities/rol";
 import { Usuario } from "./usuarios/entities/usuario";
+import { v4 as uuidv4 } from 'uuid';
 
 export const SOLICITUDES_CONTACTO = [];
 
@@ -405,6 +408,14 @@ export const ESPECIES: Especie[] = [
   new Especie("PEZ", "Pez"),
 ];
 
+export const TIENDAS : Tienda[] = [
+  new Tienda("MMM", "Mundo Mimoso Mascotas"),
+  new Tienda("RAG", "Rincon Animal Gourmet:"),
+  new Tienda("HUU", "Huellas Urbanas"),
+  new Tienda("CCB", "Caninos y Compañía Boutique"),
+  new Tienda("ZAP", "ZooManía Amigos Peludos"),
+];
+
 export const CATEGORIAS : Categoria[] = [
   new Categoria("ALIM", "Alimentación"),
   new Categoria("SERV", "Servicios"),
@@ -433,14 +444,47 @@ export const SUBCATEGORIAS_DOS : SubcategoriaDos[] = [
 ];
 
 export const PRODUCTOS : Producto[] = [
-  new Producto(1, "NutriPellets Premium para Perros",                       "ALIM", "ALIM_SECO", "PERRO",   10800, 20, "/src/assets/images/AlimentoHumedoGatitoKittenCanChatPoulet155g.png"),
-  new Producto(2, "GatoGourmet Delicias de Salmón",                         "ALIM", "ALIM_SECO", "GATO",    12500, 10, "/src/assets/images/AlimentoHumedoGatitoKittenProPlanPolloHigadoLata.png"),
-  new Producto(3, "AvesFestín Mezcla de Semillas",                          "ALIM", "ALIM_SNAC", "AVE",     25500, 11, "/src/assets/images/AlimentoHumedoGatitoKittenThreeCatsPate.png"),
-  new Producto(4, "RoedorYummies Bloques Nutritivos",                       "ALIM", "ALIM_SNAC", "ROEDOR",  55800, 25, "/src/assets/images/AlimentoHumedoGatoAdultoCastradoThreeCatsPateSaborPollo.png"),
-  new Producto(5, "FiestaFish Copos Tropicales",                            "ALIM", "ALIM_SNAC", "PEZ",     10700,  1, "/src/assets/images/AlimentoHumedoGatoAdultoFancyFeastTerrinePollo.jpg"),
-  new Producto(6, "ReptilSnack Insectos Deshidratados",                     "ALIM", "ALIM_SNAC", "REPTIL",   9500,  0, "/src/assets/images/AlimentoHumedoGatoAdultoHillsPrescriptionDietKDKidneyCareCatLata.png"),
-  new Producto(7, "CanineCrunch Bocadillos de Pollo",                       "ALIM", "ALIM_HUME", "PERRO",   70200, 30, "/src/assets/images/AlimentoHumedoGatoAdultoNecesidadesEspecialesHillsPrescriptionDietCDMulticareUrinaryCatLata.png"),
-  new Producto(8, "MiauMix Croquetas de Atún",                              "ALIM", "ALIM_SECO", "GATO",    10500,  9, "/src/assets/images/AlimentoHumedoGatoAdultoOptimumPollo.png"),
-  new Producto(9, "HealthyHerbivore Hierbas para Conejos",                  "ALIM", "ALIM_SECO", "ROEDOR",  18500,  8, "/src/assets/images/AlimentoHumedoGatoAdultoProPlanUrinaryCatCarnePollo.png"),
-  new Producto(10, "PawsLick Láminas de Salmón Liofilizado",                "ALIM", "ALIM_SECO", "GATO",    13500,  3, "/src/assets/images/AlimentoHumedoGatoAdultoThreeCatsSaborCarneSobre.png")
+  new Producto('c913ab46-b551-4a5a-a704-d00e416fec96', "NutriPellets Premium para Perros",        "ALIM", "ALIM_SECO", "PERRO",   "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatitoKittenCanChatPoulet155g.png"),
+  new Producto('55492f66-8859-4ad1-bda3-cb6e7299b1f0', "GatoGourmet Delicias de Salmón",          "ALIM", "ALIM_SECO", "GATO",    "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatitoKittenProPlanPolloHigadoLata.png"),
+  new Producto('f24b4f03-07dd-4e95-8287-309522747ece', "AvesFestín Mezcla de Semillas",           "ALIM", "ALIM_SNAC", "AVE",     "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatitoKittenThreeCatsPate.png"),
+  new Producto('44d4e35c-c06d-4ad4-8659-bf0f4dc08303', "RoedorYummies Bloques Nutritivos",        "ALIM", "ALIM_SNAC", "ROEDOR",  "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatoAdultoCastradoThreeCatsPateSaborPollo.png"),
+  new Producto('04a9d950-ce44-46ad-8bc7-1898df154971', "FiestaFish Copos Tropicales",             "ALIM", "ALIM_SNAC", "PEZ",     "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatoAdultoFancyFeastTerrinePollo.jpg"),
+  new Producto('8c50fa77-7903-4865-ad38-e938d164fc8f', "ReptilSnack Insectos Deshidratados",      "ALIM", "ALIM_SNAC", "REPTIL",  "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatoAdultoHillsPrescriptionDietKDKidneyCareCatLata.png"),
+  new Producto('63007c59-91ab-4acf-8948-bd4814add82c', "CanineCrunch Bocadillos de Pollo",        "ALIM", "ALIM_HUME", "PERRO",   "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatoAdultoNecesidadesEspecialesHillsPrescriptionDietCDMulticareUrinaryCatLata.png"),
+  new Producto('22d92043-df21-4668-b479-09c112abee5e', "MiauMix Croquetas de Atún",               "ALIM", "ALIM_SECO", "GATO",    "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatoAdultoOptimumPollo.png"),
+  new Producto('dd1bddf0-7d77-4ba3-b92c-23c88249de02', "HealthyHerbivore Hierbas para Conejos",   "ALIM", "ALIM_SECO", "ROEDOR",  "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatoAdultoProPlanUrinaryCatCarnePollo.png"),
+  new Producto('56621388-5f76-4146-8deb-3dae548bdba2', "PawsLick Láminas de Salmón Liofilizado",  "ALIM", "ALIM_SECO", "GATO",    "DESCRIPCION", "DETALLE", "/src/assets/images/AlimentoHumedoGatoAdultoThreeCatsSaborCarneSobre.png")
+];
+
+export const STOCK : Stock[] = [
+  new Stock("c913ab46-b551-4a5a-a704-d00e416fec96", "MMM", 19990, 30),
+  new Stock("c913ab46-b551-4a5a-a704-d00e416fec96", "HUU", 20490, 25),
+  new Stock("c913ab46-b551-4a5a-a704-d00e416fec96", "CCB", 18990, 40),
+  new Stock("55492f66-8859-4ad1-bda3-cb6e7299b1f0", "ZAP", 17990, 35),
+  new Stock("55492f66-8859-4ad1-bda3-cb6e7299b1f0", "RAG", 16500, 20),
+  new Stock("55492f66-8859-4ad1-bda3-cb6e7299b1f0", "MMM", 18750, 28),
+  new Stock("f24b4f03-07dd-4e95-8287-309522747ece", "HUU", 8990, 50),
+  new Stock("f24b4f03-07dd-4e95-8287-309522747ece", "CCB", 9490, 45),
+  new Stock("f24b4f03-07dd-4e95-8287-309522747ece", "ZAP", 7990, 60),
+  new Stock("44d4e35c-c06d-4ad4-8659-bf0f4dc08303", "RAG", 5990, 40),
+  new Stock("44d4e35c-c06d-4ad4-8659-bf0f4dc08303", "MMM", 6490, 35),
+  new Stock("44d4e35c-c06d-4ad4-8659-bf0f4dc08303", "HUU", 5500, 50),
+  new Stock("04a9d950-ce44-46ad-8bc7-1898df154971", "CCB", 10990, 30),
+  new Stock("04a9d950-ce44-46ad-8bc7-1898df154971", "ZAP", 11490, 25),
+  new Stock("04a9d950-ce44-46ad-8bc7-1898df154971", "RAG", 10500, 40),
+  new Stock("8c50fa77-7903-4865-ad38-e938d164fc8f", "MMM", 12990, 20),
+  new Stock("8c50fa77-7903-4865-ad38-e938d164fc8f", "HUU", 13490, 25),
+  new Stock("8c50fa77-7903-4865-ad38-e938d164fc8f", "CCB", 11990, 30),
+  new Stock("63007c59-91ab-4acf-8948-bd4814add82c", "ZAP", 14990, 35),
+  new Stock("63007c59-91ab-4acf-8948-bd4814add82c", "RAG", 15490, 40),
+  new Stock("63007c59-91ab-4acf-8948-bd4814add82c", "MMM", 13990, 30),
+  new Stock("22d92043-df21-4668-b479-09c112abee5e", "HUU", 18990, 50),
+  new Stock("22d92043-df21-4668-b479-09c112abee5e", "CCB", 19490, 45),
+  new Stock("22d92043-df21-4668-b479-09c112abee5e", "ZAP", 17990, 55),
+  new Stock("dd1bddf0-7d77-4ba3-b92c-23c88249de02", "RAG", 7990, 40),
+  new Stock("dd1bddf0-7d77-4ba3-b92c-23c88249de02", "MMM", 8490, 35),
+  new Stock("dd1bddf0-7d77-4ba3-b92c-23c88249de02", "HUU", 7500, 45),
+  new Stock("56621388-5f76-4146-8deb-3dae548bdba2", "CCB", 16990, 30),
+  new Stock("56621388-5f76-4146-8deb-3dae548bdba2", "ZAP", 17490, 25),
+  new Stock("56621388-5f76-4146-8deb-3dae548bdba2", "RAG", 15990, 35)
 ];

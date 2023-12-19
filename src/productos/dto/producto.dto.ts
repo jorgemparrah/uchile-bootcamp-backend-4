@@ -1,6 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { StockDto } from "./stock.dto";
 
 export class ProductoDto {
+
+  @ApiProperty({ description: 'Id del producto', example: 'a25b63ab-2cdf-42f0-913c-c519f05896c3' })
+  id: string;
 
   @ApiProperty({ description: 'Nombre del producto', example: 'Correa' })
   nombre: string;
@@ -22,6 +26,9 @@ export class ProductoDto {
 
   @ApiProperty({ description: 'Imagen del producto', example: '/2020/10/Correa-para-perros-1.jpg' })
   imagen: string;
+
+  @ApiProperty({ description: 'Tiendas con stock', type: StockDto, isArray: true })
+  stock: StockDto[];
 
 
 }

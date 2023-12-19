@@ -4,8 +4,10 @@ import { CargaDatosService } from './cargaDatos.service';
 import { Categoria } from './productos/entities/categoria';
 import { Especie } from './productos/entities/especie';
 import { Producto } from './productos/entities/producto';
+import { Stock } from './productos/entities/stock';
 import { Subcategoria } from './productos/entities/subcategoria';
 import { SubcategoriaDos } from './productos/entities/subcategoriaDos';
+import { Tienda } from './productos/entities/tienda';
 import { ProductosModule } from './productos/productos.module';
 import { ServiciosModule } from './servicios/servicios.module';
 import { SoporteModule } from './soporte/soporte.module';
@@ -20,9 +22,9 @@ import { UsuariosModule } from './usuarios/usuarios.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'db/datos.sql',
+      database: 'db/datos-zonapet.sql',
       synchronize: true,
-      entities: [ Region, Comuna, Categoria, Subcategoria, SubcategoriaDos, Especie, Producto, Rol, Usuario ],
+      entities: [ Region, Comuna, Categoria, Subcategoria, SubcategoriaDos, Especie, Producto, Rol, Usuario, Tienda, Stock ],
     }),
     ProductosModule, UsuariosModule, UbicacionModule, ServiciosModule, SoporteModule],
   controllers: [],

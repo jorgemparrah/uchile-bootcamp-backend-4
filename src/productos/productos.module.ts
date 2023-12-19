@@ -14,15 +14,19 @@ import { SubcategoriaDos } from './entities/subcategoriaDos';
 import { SubcategoriasDosController } from './subcategoriasDos.controller';
 import { SubcategoriasDosService } from './subcategoriasDos.service';
 import { CategoriasController } from './categorias.controller';
+import { Tienda } from './entities/tienda';
+import { Stock } from './entities/stock';
+import { TiendasService } from './tiendas.service';
+import { StockService } from './stock.service';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Especie, Categoria, Subcategoria, SubcategoriaDos, Producto
+      Especie, Categoria, Subcategoria, SubcategoriaDos, Producto, Tienda, Stock
     ]),
   ],
   controllers: [ CategoriasController, SubcategoriasController, SubcategoriasDosController, ProductosController ],
-  providers: [CategoriasService, SubcategoriasService, SubcategoriasDosService, ProductosService, EspeciesService],
-  exports: [CategoriasService, SubcategoriasService, SubcategoriasDosService, ProductosService, EspeciesService]
+  providers: [CategoriasService, SubcategoriasService, SubcategoriasDosService, ProductosService, EspeciesService, TiendasService, StockService ],
+  exports: [CategoriasService, SubcategoriasService, SubcategoriasDosService, ProductosService, EspeciesService, TiendasService, StockService ]
 })
 export class ProductosModule {}

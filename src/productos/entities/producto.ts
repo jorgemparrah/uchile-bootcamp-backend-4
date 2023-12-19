@@ -1,13 +1,14 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn } from 'typeorm';
 import { Especie } from './especie';
 import { Subcategoria } from './subcategoria';
 import { Categoria } from './categoria';
+import { Stock } from './stock';
 
 @Entity({ name: 'producto' })
 export class Producto {
 
   @PrimaryColumn()
-  id: number;
+  id: string;
   @Column()
   nombre: string;
   @Column()
@@ -17,9 +18,9 @@ export class Producto {
   @Column()
   idEspecie: string;
   @Column()
-  precio: number;
+  descripcion: string;
   @Column()
-  cantidad: number;
+  detalle: string;
   @Column()
   imagen: string;
 
@@ -35,14 +36,17 @@ export class Producto {
   @JoinColumn({ name: 'idEspecie' })
   especie: Especie;
 
-  constructor(id: number, nombre: string, idCategoria: string, idSubcategoria: string, idEspecie: string, precio: number, cantidad: number, imagen: string) {
+  @OneToMany(() => Stock, stock => stock.producto)
+  stock: Stock[];
+
+  constructor(id: string, nombre: string, idCategoria: string, idSubcategoria: string, idEspecie: string, descripcion: string, detalle: string, imagen: string) {
     this.id = id;
     this.nombre = nombre;
     this.idCategoria = idCategoria;
     this.idSubcategoria = idSubcategoria;
     this.idEspecie = idEspecie;
-    this.precio = precio;
-    this.cantidad = cantidad;
+    this.descripcion = descripcion;
+    this.detalle = detalle;
     this.imagen = imagen;
   }
 
