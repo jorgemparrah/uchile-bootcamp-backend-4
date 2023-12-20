@@ -18,6 +18,7 @@ import { Tienda } from './entities/tienda';
 import { Stock } from './entities/stock';
 import { TiendasService } from './tiendas.service';
 import { StockService } from './stock.service';
+import { TiendasController } from './tiendas.controller';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { StockService } from './stock.service';
       Especie, Categoria, Subcategoria, SubcategoriaDos, Producto, Tienda, Stock
     ]),
   ],
-  controllers: [ CategoriasController, SubcategoriasController, SubcategoriasDosController, ProductosController ],
+  controllers: [ CategoriasController, SubcategoriasController, SubcategoriasDosController, ProductosController, TiendasController ],
   providers: [CategoriasService, SubcategoriasService, SubcategoriasDosService, ProductosService, EspeciesService, TiendasService, StockService ],
   exports: [CategoriasService, SubcategoriasService, SubcategoriasDosService, ProductosService, EspeciesService, TiendasService, StockService ]
 })
