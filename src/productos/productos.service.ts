@@ -171,7 +171,7 @@ export class ProductosService {
   }
 
   async guardarImagen(idProducto: string, nombre: string, base64: string): Promise<string> {
-    const rutaProyecto = 'img';
+    const rutaProyecto = '/Users/cristianchaconrios/DEV/PrimeraPagina';
     try {
       const extension = nombre.split('.').pop();
       const directorioBase = `/src/assets/images/productos`;
