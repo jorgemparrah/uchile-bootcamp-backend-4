@@ -18,6 +18,12 @@ export class ProductoDto {
   @ApiProperty({ description: 'Tipo de especie', example: 'Perros' })
   especie: string;
 
+  @ApiProperty({ description: 'Descripcion del producto', example: 'Descripcion' })
+  descripcion: string;
+
+  @ApiProperty({ description: 'Detalle del producto', example: 'Detalle' })
+  detalle: string;
+
   @ApiProperty({ description: 'Precio de venta', example: 50000 })
   precio: number;
 

@@ -21,6 +21,8 @@ export class ProductoMapper {
     }
     dto.imagen = entity.imagen;
     dto.stock = StockMapper.toDtoList(entity.stock);
+    dto.descripcion = entity.descripcion;
+    dto.detalle = entity.detalle;
     return dto;
   }
 
