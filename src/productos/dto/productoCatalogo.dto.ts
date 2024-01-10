@@ -8,6 +8,9 @@ export class ProductoCatalogoDto {
   @ApiProperty({ description: 'Nombre del producto', example: 'Correa' })
   nombre: string;
 
+  @ApiProperty({ description: 'Ruta imagen del producto', example: 'src/imagen/.....' })
+  imagen: string;
+
   @ApiProperty({ description: 'Precio de venta - Desde', example: 50000 })
   precio: number;
 

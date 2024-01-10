@@ -32,6 +32,7 @@ export class ProductoMapper {
     const dto = new ProductoCatalogoDto();
     dto.id = entity.id;
     dto.nombre = entity.nombre;
+    dto.imagen = entity.imagen;
     dto.precio = entity.stock.reduce((prev, current) => {
       return (prev.precio < current.precio) ? prev : current
     }, entity.stock[0]).precio;
